@@ -12,17 +12,17 @@ namespace Vidly.Controllers
         // GET: Settings
         public ActionResult Index()
         {
-            var model = new MovieModel();
+            var model = new Movie();
             var i = 5 / model.Id;
             return View();
         }
 
         public ActionResult Movies()
         {
-            List<MovieModel> movies = new List<MovieModel>();
-            movies.Add(new MovieModel { Name = "Squid Game", Id = 4109873 });
-            movies.Add(new MovieModel { Name = "Tournament", Id = 3237823 });
-            movies.Add(new MovieModel { Name = "Tomorrow", Id = 5154873 });
+            List<Movie> movies = new List<Movie>();
+            movies.Add(new Movie { Name = "Squid Game", Id = 4109873 });
+            movies.Add(new Movie { Name = "Tournament", Id = 3237823 });
+            movies.Add(new Movie { Name = "Tomorrow", Id = 5154873 });
 
             return View(movies);
         }

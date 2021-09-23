@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
@@ -14,7 +15,7 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             //passing data to View
-            var movie = new MovieModel() { Name = "Shrek!" };
+            var movie = new Movie() { Name = "Shrek!" };
             //ViewData["Movie"] = movie;
             //ViewBag.Movie = movie;
 
@@ -49,30 +50,57 @@ namespace Vidly.Controllers
             return Content("ID: " + movieId);
         }
 
-        [Route("movies/{pageIndex:regex(\\d{3})}/{sortBy}")]
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            if (!pageIndex.HasValue)
-            {
-                pageIndex = 1;
-            }
-            if (String.IsNullOrEmpty(sortBy))
-            {
-                sortBy = "Name";
-            }
+        //[Route("movies/{pageIndex:regex(\\d{3})}/{sortBy}")]
+        //public ActionResult Index(int? pageIndex, string sortBy)
+        //{
+        //    if (!pageIndex.HasValue)
+        //    {
+        //        pageIndex = 1;
+        //    }
+        //    if (String.IsNullOrEmpty(sortBy))
+        //    {
+        //        sortBy = "Name";
+        //    }
 
-            return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
-        }
+        //    return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
+        //}
 
         public ActionResult Index()
         {
-            var movies = new List<MovieModel>()
+            return View(GetMovies());
+        }
+
+        [Route("movies/details/{id}")]
+        public ActionResult Details(int id)
+        {
+            var movie = GetMovies().SingleOrDefault(m => m.Id == id);
+            return View(movie);
+        }
+
+        private ApplicationDbContext context;
+
+        public MoviesController()
+        {
+            context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            context.Dispose();
+        }
+
+        public IEnumerable<Movie> GetMovies()
+        {
+            var movies = new List<Movie>()
             {
-                new MovieModel() { Name = "Brave Heart" },
-                new MovieModel() { Name = "The day after tomorrow" },
+                new Movie() { Name = "Brave Heart", Id = 1 },
+                new Movie() { Name = "The day after tomorrow", Id = 2 },
             };
 
-            return View(movies);
+            movies = context.Movies.Include(m => m.Genre).ToList();
+
+            return movies;
         }
     }
 }

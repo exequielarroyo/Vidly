@@ -13,7 +13,7 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             //passing data to View
-            var movie = new MovieModel() { Name = "Shrek!" };
+            var movie = new Movie() { Name = "Shrek!" };
             //ViewData["Movie"] = movie;
             //ViewBag.Movie = movie;
 
