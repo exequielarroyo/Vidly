@@ -20,7 +20,7 @@ else
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.Name, "Details", "Customers", new { id = item.Id }, null)
+                    @Html.ActionLink(item.Name, "Edit", "Customers", new { id = item.Id }, null)
                 </td>
                 <td>
                     @item.MembershipType.Name
@@ -28,6 +28,8 @@ else
             </tr>
         }
     </table>
+    @*<button class="btn btn-danger">Add @Html.Action("Add", "Customers")</button>*@
+    <a class="btn btn-success" href="/customers/new">Add</a>
 }
 
 

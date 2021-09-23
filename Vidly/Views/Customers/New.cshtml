@@ -1,0 +1,31 @@
+﻿@model Vidly.Models.NewCustomerViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Customer</h2>
+
+@using (Html.BeginForm("Create", "Customers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control", placeholder = "You're name", type = "Name" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Birthdate, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Customer.Birthdate,"{0:d MMM yyyy}", new { @class = "form-control", placeholder = "You're birthdate" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId, new { @class = "form-label" })
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control", placeholder = "You're birthdate" })
+    </div>
+    <div class="form-check">
+        <label class="form-check-label">
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsLetter, new { @class = "form-check-input", placeholder = "You're name", type = "checkbox" })
+            Subscribe to News Letter?
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/Customers" class="btn btn-close">Back</a>
+}
