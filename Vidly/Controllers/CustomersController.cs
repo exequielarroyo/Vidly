@@ -4,11 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            _context.Dispose();
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
@@ -42,6 +56,8 @@ namespace Vidly.Controllers
                 new Customer() {Name = "Exequiel Arroyo", Id = 123213},
                 new Customer() {Name = "Christine Arroyo", Id = 4353},
             };
+
+            customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             return customers;
         }

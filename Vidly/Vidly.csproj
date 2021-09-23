@@ -176,10 +176,40 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109222244069_InitialModel.cs" />
+    <Compile Include="Migrations\202109222244069_InitialModel.Designer.cs">
+      <DependentUpon>202109222244069_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109222308275_AddIsSubscribedToNewsLetter.cs" />
+    <Compile Include="Migrations\202109222308275_AddIsSubscribedToNewsLetter.Designer.cs">
+      <DependentUpon>202109222308275_AddIsSubscribedToNewsLetter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109222312232_AddMembershipType.cs" />
+    <Compile Include="Migrations\202109222312232_AddMembershipType.Designer.cs">
+      <DependentUpon>202109222312232_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109222314546_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202109222314546_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202109222314546_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109222323208_ApplyAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\202109222323208_ApplyAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>202109222323208_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109222354161_UpdateMembershipTypeAddedName.cs" />
+    <Compile Include="Migrations\202109222354161_UpdateMembershipTypeAddedName.Designer.cs">
+      <DependentUpon>202109222354161_UpdateMembershipTypeAddedName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109230012244_UpdateMembershipTableColumnName.cs" />
+    <Compile Include="Migrations\202109230012244_UpdateMembershipTableColumnName.Designer.cs">
+      <DependentUpon>202109230012244_UpdateMembershipTableColumnName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -266,6 +296,29 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202109222244069_InitialModel.resx">
+      <DependentUpon>202109222244069_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109222308275_AddIsSubscribedToNewsLetter.resx">
+      <DependentUpon>202109222308275_AddIsSubscribedToNewsLetter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109222312232_AddMembershipType.resx">
+      <DependentUpon>202109222312232_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109222314546_PopulateMembershipTypes.resx">
+      <DependentUpon>202109222314546_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109222323208_ApplyAnnotationsToCustomerName.resx">
+      <DependentUpon>202109222323208_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109222354161_UpdateMembershipTypeAddedName.resx">
+      <DependentUpon>202109222354161_UpdateMembershipTypeAddedName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109230012244_UpdateMembershipTableColumnName.resx">
+      <DependentUpon>202109230012244_UpdateMembershipTableColumnName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
