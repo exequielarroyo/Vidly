@@ -1,0 +1,47 @@
+﻿@model Vidly.Models.MovieViewModel
+
+@{
+    var typeForm = "";
+    if (Model.Movie == null)
+    {
+        ViewBag.Title = "Add";
+        typeForm = "Add Movie";
+    }
+    else
+    {
+        ViewBag.Title = "Edit";
+        typeForm = "Edit Movie";
+    }
+    <h2>@typeForm</h2>
+}
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control", placeholder = "Movie title"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.ReleaseDate, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "eg. 01 January 2021" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.GenreId, new { @class = "form-label" })
+        @Html.DropDownListFor(m => m.Movie.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Movie Type", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Stock, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Movie.Stock, new { @class = "form-control", placeholder = "Total Stocks" })
+    </div>
+    @*<div class="form-check">
+            <label class="form-check-label">
+                @Html.CheckBoxFor(m => m.Movie.IsSubscribedToNewsLetter, new { @class = "form-check-input", placeholder = "You're name", type = "checkbox" })
+                Subscribe to News Letter?
+            </label>
+        </div>*@
+    @Html.HiddenFor(c => c.Movie.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/Movies" class="btn btn-close">Back</a>
+}
+
+
