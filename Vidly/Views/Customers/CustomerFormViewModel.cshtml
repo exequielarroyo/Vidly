@@ -2,7 +2,7 @@
 
 @{
     string formType = "";
-    if (Model.Customer == null)
+    if (Model.Customer == null || Model.Customer.Id == 0)
     {
         ViewBag.Title = "New";
         formType = "New Customer";
@@ -19,17 +19,21 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
+    @Html.ValidationSummary(true, "Please fix the following errors.")
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name, new { @class = "form-label" })
         @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control", placeholder = "You're name", type = "Name" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Birthdate, new { @class = "form-label" })
-        @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "You're birthdate" })
+        @Html.ValidationMessageFor(m => m.Customer.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.MembershipTypeId, new { @class = "form-label" })
         @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control", placeholder = "You're birthdate" })
+        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Birthdate, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "You're birthdate" })
+        @Html.ValidationMessageFor(m => m.Customer.Birthdate)
     </div>
     <div class="form-check">
         <label class="form-check-label">
@@ -38,6 +42,11 @@
         </label>
     </div>
     @Html.HiddenFor(c => c.Customer.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="/Customers" class="btn btn-close">Back</a>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
 }

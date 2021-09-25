@@ -224,11 +224,16 @@
     <Compile Include="Migrations\202109240558292_UpdateMovieForeignKey.Designer.cs">
       <DependentUpon>202109240558292_UpdateMovieForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109250151283_AddedRequireAnnotationsInMovieModel.cs" />
+    <Compile Include="Migrations\202109250151283_AddedRequireAnnotationsInMovieModel.Designer.cs">
+      <DependentUpon>202109250151283_AddedRequireAnnotationsInMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Is18YearsOfAge.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -359,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109240558292_UpdateMovieForeignKey.resx">
       <DependentUpon>202109240558292_UpdateMovieForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109250151283_AddedRequireAnnotationsInMovieModel.resx">
+      <DependentUpon>202109250151283_AddedRequireAnnotationsInMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
