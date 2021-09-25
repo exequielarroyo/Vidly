@@ -1,18 +1,18 @@
 ﻿@model Vidly.Models.MovieViewModel
 
 @{
-    var typeForm = "";
-    if (Model == null || Model.Id == 0)
-    {
-        ViewBag.Title = "Add";
-        typeForm = "Add Movie";
-    }
-    else
-    {
-        ViewBag.Title = "Edit";
-        typeForm = "Edit Movie";
-    }
-    <h2>@typeForm</h2>
+//var typeForm = "";
+//if (Model == null || Model.Id == 0)
+//{
+//    ViewBag.Title = "Add";
+//    typeForm = "Add Movie";
+//}
+//else
+//{
+//    ViewBag.Title = "Edit";
+//    typeForm = "Edit Movie";
+//}
+    <h2>@Model.Title</h2>
 }
 
 @using (Html.BeginForm("Save", "Movies"))

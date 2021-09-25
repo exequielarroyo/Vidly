@@ -41,5 +41,13 @@ namespace Vidly.Models
             ReleaseDate = movie.ReleaseDate;
             Stock = movie.Stock;
         }
+
+        public string Title
+        {
+            get
+            {
+                return Name != null ? "Edit Movie" : "New Movie";
+            }
+        }
     }
 }
