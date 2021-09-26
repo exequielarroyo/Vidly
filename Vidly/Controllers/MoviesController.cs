@@ -64,7 +64,6 @@ namespace Vidly.Controllers
 
         //    return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
         //}
-
         public ActionResult Index()
         {
             return View(GetMovies());
