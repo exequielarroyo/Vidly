@@ -26,7 +26,8 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(GetCustommers());
+            //return View(GetCustommers());
+            return View();
         }
 
         //[Route("customers/details")]
