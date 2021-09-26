@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Vidly.Models.Customer>
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h2>Customers</h2>
+
+
+<table class="table" id="customers">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.MembershipType)</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            const table = $("#customers").DataTable({
+                ajax: {
+                    url: "/api/customers",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                    }, {
+                        data: "membershipType.name",
+                    },
+                ]
+            })
+        });
+    </script>
+} 
