@@ -60,8 +60,8 @@ namespace Vidly
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "906897262267-pcfd8egelhh6jldpvukotpu59o44clir.apps.googleusercontent.com",
-                ClientSecret = "cU-YxpeKho4UdAHj0fC3jteC"
+                ClientId = "906897262267-b85lbjd7rdt3gqus289032nbr19fjuhi.apps.googleusercontent.com",
+                ClientSecret = "hN8_r1ectL5ePqgKtxobHJGy"
             });
         }
     }
