@@ -21,19 +21,19 @@ namespace Vidly.Controllers.Api
             var customerInDb = context.Customers.SingleOrDefault(r => r.Id == newRental.CustomerId);
             var movies = context.Movies.Where(m => newRental.MoviesId.Contains(m.Id)).ToList();
 
-            if (customerInDb == null) 
+            if (customerInDb == null)
                 return BadRequest("Customer id is not valid.");
             if (movies.Count != newRental.MoviesId.Count)
                 return BadRequest("One or more movies are invalid.");
-            
-            
+
+
 
             foreach (var movie in movies)
             {
                 if (movie.NumberAvailable == 0)
                     return BadRequest("Movie is not available.");
 
-                    movie.NumberAvailable--;
+                movie.NumberAvailable--;
 
                 var rental = new Rental
                 {
