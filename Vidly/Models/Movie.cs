@@ -25,10 +25,12 @@ namespace Vidly.Models
         [Required]
         public DateTime ReleaseDate { get; set; }
 
+        public byte NumberAvailable { get; set; }
+
         public DateTime DateAdded { get; set; }
 
         [Required]
-        [Range(1,20)]
-        public int Stock { get; set; }
+        [Range(1, 20)]
+        public byte Stock { get; set; }
     }
 }
